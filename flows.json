@@ -1,0 +1,380 @@
+[
+    {
+        "id": "cc16aa1724d672e6",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4565040fc72dd7dc",
+        "type": "serial in",
+        "z": "cc16aa1724d672e6",
+        "name": "COM5",
+        "serial": "05c3724a2df70dfe",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "330ae07324089dca"
+            ]
+        ]
+    },
+    {
+        "id": "330ae07324089dca",
+        "type": "json",
+        "z": "cc16aa1724d672e6",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 180,
+        "wires": [
+            [
+                "ce3800d4dcb65554",
+                "1e515a4a94448dd6",
+                "45cc5586cd564dc8",
+                "98567f3f6267dd5c"
+            ]
+        ]
+    },
+    {
+        "id": "ce3800d4dcb65554",
+        "type": "change",
+        "z": "cc16aa1724d672e6",
+        "name": "Temperatura",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperatura",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 140,
+        "wires": [
+            [
+                "404836a462ff5498",
+                "941d8a9d3fd9e31f"
+            ]
+        ]
+    },
+    {
+        "id": "941d8a9d3fd9e31f",
+        "type": "ui_gauge",
+        "z": "cc16aa1724d672e6",
+        "name": "",
+        "group": "43122abe57fb58f3",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 810,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "404836a462ff5498",
+        "type": "ui_chart",
+        "z": "cc16aa1724d672e6",
+        "name": "",
+        "group": "43122abe57fb58f3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Mudança de temperatura",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 810,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e515a4a94448dd6",
+        "type": "csv",
+        "z": "cc16aa1724d672e6",
+        "name": "CVS",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "Umidade, Temperatura",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 530,
+        "y": 220,
+        "wires": [
+            [
+                "cc5d1b93bdb1dbe5"
+            ]
+        ]
+    },
+    {
+        "id": "cc5d1b93bdb1dbe5",
+        "type": "file",
+        "z": "cc16aa1724d672e6",
+        "name": "",
+        "filename": "C:\\Users\\Danin\\Documents\\File.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 780,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "45cc5586cd564dc8",
+        "type": "change",
+        "z": "cc16aa1724d672e6",
+        "name": "Umidade",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.umidade",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 400,
+        "wires": [
+            [
+                "adacb7bbfe21bafb",
+                "751fe517b50f4c23"
+            ]
+        ]
+    },
+    {
+        "id": "adacb7bbfe21bafb",
+        "type": "ui_gauge",
+        "z": "cc16aa1724d672e6",
+        "name": "",
+        "group": "0e1ae15ef0a1a2dd",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Umidade",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 560,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "751fe517b50f4c23",
+        "type": "ui_chart",
+        "z": "cc16aa1724d672e6",
+        "name": "",
+        "group": "0e1ae15ef0a1a2dd",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Mudança na Umidade",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 580,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a98ae745065d785",
+        "type": "ui_text",
+        "z": "cc16aa1724d672e6",
+        "group": "43122abe57fb58f3",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Alerta",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "98567f3f6267dd5c",
+        "type": "change",
+        "z": "cc16aa1724d672e6",
+        "name": "Alerta",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.alerta",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 280,
+        "wires": [
+            [
+                "1a98ae745065d785"
+            ]
+        ]
+    },
+    {
+        "id": "05c3724a2df70dfe",
+        "type": "serial-port",
+        "serialport": "COM5",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "43122abe57fb58f3",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "9680891a2d3efd3b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0e1ae15ef0a1a2dd",
+        "type": "ui_group",
+        "name": "Umidade",
+        "tab": "9680891a2d3efd3b",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9680891a2d3efd3b",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
